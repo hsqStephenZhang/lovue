@@ -24,6 +24,9 @@
             <button>
                 <router-link to="/treeTest" class="link">menu</router-link>
             </button>
+            <button>
+                <router-link to="/todo" class="link">todo</router-link>
+            </button>
         </div>
         <router-view />
     </div>

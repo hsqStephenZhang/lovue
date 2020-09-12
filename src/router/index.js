@@ -44,6 +44,11 @@ const routes = [
     name: "treeTest",
     component: () => import("../views/treeTest.vue"),
   },
+  {
+    path: "/todo",
+    name: "todo",
+    component: () => import("../views/todo/todo.vue"),
+  },
 ];
 
 const router = new VueRouter({
