@@ -1,23 +1,45 @@
 <template>
-  <div class="row">
+  <div
+    class="row"
+    :style="{
+      display: this.display,
+      'justify-content': this.justifyContent,
+    }"
+  >
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    display: {
+      type: String,
+      default: "flex",
+    },
+    justifyContent: {
+      type: String,
+      default: "space-around",
+    },
+    alignItems: {
+      type: String,
+      default: "center",
+    },
+    alignContent: {
+      type: String,
+      default: "space-around",
+    },
+  },
+};
 </script>
 
 <style>
 * {
-  margin: 0px;
+  margin: 2px;
   padding: 0px;
 }
 
 .row {
-  display: flex;
-  min-height: 100px;
-  align-content: space-between;
-  justify-content: space-between;
+  min-height: 1em;
 }
 </style>
