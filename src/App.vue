@@ -1,105 +1,108 @@
 <template>
-  <div id="app" v-cloak>
-    <div id="nav">
-      <button>
-        <router-link to="/" class="link">Home</router-link>
-      </button>
-      <button>
-        <router-link to="/about" class="link">About</router-link>
-      </button>
-      <button>
-        <router-link to="/Rank" class="link">Rank</router-link>
-      </button>
-      <button>
-        <router-link to="/Messages" class="link">Message</router-link>
-      </button>
-      <button>
-        <router-link to="/Login" class="link">Login</router-link>
-      </button>
-      <!-- <button>
+    <div id="app" v-cloak>
+        <div id="nav">
+            <button>
+                <router-link to="/" class="link">Home</router-link>
+            </button>
+            <button>
+                <router-link to="/about" class="link">About</router-link>
+            </button>
+            <button>
+                <router-link to="/Rank" class="link">Rank</router-link>
+            </button>
+            <button>
+                <router-link to="/Messages" class="link">Message</router-link>
+            </button>
+            <button>
+                <router-link to="/Login" class="link">Login</router-link>
+            </button>
+            <!-- <button>
         <router-link to="/row_test" class="link"
           >test of row column</router-link
         >
             </button>-->
-      <button>
-        <router-link to="/treeTest" class="link">menu</router-link>
-      </button>
-      <button>
-        <router-link to="/todo" class="link">todo</router-link>
-      </button>
-      <button>
-        <router-link to="/components" class="link">components</router-link>
-      </button>
+            <button>
+                <router-link to="/treeTest" class="link">menu</router-link>
+            </button>
+            <button>
+                <router-link to="/todo" class="link">todo</router-link>
+            </button>
+            <button>
+                <router-link to="/components" class="link">components</router-link>
+            </button>
+            <button>
+                <router-link to="/todoList" class="link">todos</router-link>
+            </button>
+        </div>
+        <router-view />
     </div>
-    <router-view />
-  </div>
 </template>
 
 <script>
 export default {
-  directives: {
-    clickoutside: {
-      bind: function(el, binding, vnode) {
-        function documentHandler(event) {
-          console.log(event);
-          if (el.contains(event.target)) {
-            return false;
-          }
-          if (binding.expression) {
-            binding.value(event);
-          }
-          el.__vueClickOutSide__ = documentHandler;
-          document.addEventListener("click", documentHandler);
-        }
-      },
-      unbind: function(el, binding) {
-        document.removeEventListener("click", el.__vueClickOutSide__);
-        delete el.__vueClickOutSide__;
-      },
+    directives: {
+        clickoutside: {
+            bind: function (el, binding, vnode) {
+                function documentHandler(event) {
+                    console.log(event)
+                    if (el.contains(event.target)) {
+                        return false
+                    }
+                    if (binding.expression) {
+                        binding.value(event)
+                    }
+                    el.__vueClickOutSide__ = documentHandler
+                    document.addEventListener('click', documentHandler)
+                }
+            },
+            unbind: function (el, binding) {
+                document.removeEventListener('click', el.__vueClickOutSide__)
+                delete el.__vueClickOutSide__
+            },
+        },
     },
-  },
-};
+}
 </script>
 
 <style>
 [v-clock] {
-  display: none;
+    display: none;
 }
 
 * {
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  color: #2c3e50;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* text-align: center; */
+    color: #2c3e50;
 }
 
 #nav {
-  padding: 30px;
-  display: flex;
+    padding: 30px;
+    display: flex;
 }
 
 #nav button {
-  flex: 1;
-  justify-content: space-around;
-  min-height: 30px;
-  border: 1px;
-  margin: 2px 3px;
-  font-size: 20px;
-  color: skyblue;
+    flex: 1;
+    justify-content: space-around;
+    min-height: 30px;
+    border: 1px;
+    margin: 2px 3px;
+    font-size: 20px;
+    color: skyblue;
 }
 
 #nav .link {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 #nav a.router-link-exact-active {
-  color: red;
+    color: red;
 }
 </style>
