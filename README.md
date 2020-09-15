@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # lovue
 
 ## Project setup
@@ -22,3 +23,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# lovue
+>>>>>>> 5c426ad049662c753e3b09fcba14cea070c03ff0
