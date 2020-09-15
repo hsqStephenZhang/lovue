@@ -4,12 +4,17 @@
       <header class="header">
         <h1>todos:{{ todos.length }}</h1>
         <div class="input-box">
-          <input
+          <!-- <input
             type="checkbox"
             id="toggle-all"
             class="toggle-all"
             v-model="allDone"
-          />
+          /> -->
+          <checkbox
+            id="toggle-all"
+            class="toggle-all"
+            v-model="allDone"
+          ></checkbox>
           <input
             class="new-todo"
             autocomplete="off"
@@ -74,6 +79,8 @@
 </template>
 
 <script>
+import checkbox from "@/components/input/checkbox";
+
 var STOREAGE_KEY = "todos";
 var todoStorage = {
   fetch: function() {
@@ -103,6 +110,9 @@ var myfilters = {
 
 export default {
   name: "todolist",
+  components: {
+    checkbox,
+  },
   data() {
     return {
       todos: todoStorage.fetch(),

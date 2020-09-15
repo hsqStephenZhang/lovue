@@ -1,6 +1,6 @@
 <template>
   <div class="radio">
-    <input type="radio" id="radioId" />
+    <input type="radio" id="radioId" :checked="checked" @change="updateValue" />
     <label for="radioId"></label>
   </div>
 </template>
@@ -11,6 +11,14 @@ export default {
     label: {
       type: String,
       default: "label",
+    },
+    checked: {
+      type: Boolean,
+    },
+  },
+  methods: {
+    updateValue() {
+      this.$emit("change", event.target.checked);
     },
   },
 };

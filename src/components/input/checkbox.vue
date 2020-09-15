@@ -1,7 +1,7 @@
 <template>
   <div class="checkbox">
-    <input type="checkbox" id="inputId" />
-    <label for="inputId"></label>
+    <input type="checkbox" :id="id" :checked="checked" @change="updateValue" />
+    <label :for="id"></label>
   </div>
 </template>
 
@@ -12,7 +12,27 @@ export default {
       type: String,
       default: "label",
     },
+    checked: {
+      type: Boolean,
+      default: false,
+    },
+    value: {
+      type: [String, Number, Array, Boolean],
+    },
+    id: {
+      type: String,
+      required: true,
+    },
   },
+  methods: {
+    updateValue(event) {
+      this.$emit("change", event.target.checked);
+    },
+  },
+  // v-model 在不同的html上面会监控不同的属性，抛出不同的事件
+  //   text 和 textarea 元素使用 value 属性和 input 事件；
+  // checkbox 和 radio 使用 checked 属性和 change 事件；
+  // select 字段将 value 作为 prop 并将 change 作为事件。
 };
 </script>
 

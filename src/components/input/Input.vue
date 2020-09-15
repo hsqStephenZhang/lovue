@@ -3,8 +3,8 @@
     <input
       class="input-box"
       type="text"
-      :value="value"
       @input="updateValue"
+      :value="value"
       :placeholder="size"
       :style="{
         fontSize: fontSize,
